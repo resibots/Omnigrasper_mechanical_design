@@ -1,7 +1,7 @@
 // increase number of faces on rounded faces
 //$fn=50;
 
-translate([0, 60, 0])
+% translate([0, 60, 0])
 difference() {
   union() {
     hull() {
@@ -15,6 +15,43 @@ difference() {
       rotate_extrude()
         translate([39, 0, 0])
           polygon([[0, 0], [width, 0], [width, height-chamfer], [width-chamfer, height], [chamfer, height], [0, height-chamfer]]);
+
+    // air duct to the Versaball
+    pipe_height = 8;
+    hole_radius = 11.80/2;
+    pipe_radius = 12;
+    chamfer = 0.5;
+    seal_inner_radius = 17.46/2;
+    seal_thickness = 2.38125; // 3/32 inch
+    translate([0, 0, 13])
+      rotate_extrude()
+        polygon([
+          [hole_radius, 0],
+          [pipe_radius, 0],
+          [pipe_radius, 4],
+          [pipe_radius-seal_thickness+0.01, 4],
+          [pipe_radius-seal_thickness+0.01, 4+seal_thickness-0.01],
+          [pipe_radius, 4+seal_thickness-0.01],
+          [pipe_radius, pipe_height-chamfer],
+          [pipe_radius-chamfer, pipe_height],
+          [hole_radius, pipe_height]
+          ]);
+
+    // junction to plug the vacuum tube
+    junction_radius = 6.25/2;
+    junction_hole_radius = 3.50/2;
+    junction_enlargement = 0.5;
+    translate([40, 0, 6])
+      rotate([0, 90, 0])
+        rotate_extrude()
+          polygon([
+            [junction_hole_radius, 0],
+            [junction_radius, 0],
+            [junction_radius, 8],
+            [junction_radius+junction_enlargement, 8],
+            [junction_radius, 16],
+            [junction_hole_radius, 16]
+            ]);
   }
 
   // radius of the circle on which the holes are placed
@@ -49,3 +86,6 @@ difference() {
   }
 }
 
+// Air duct through the piece
+/*air_duct_radius = junction_hole_radius;*/
+/*air_duct_radius = 3.5/2;*/
