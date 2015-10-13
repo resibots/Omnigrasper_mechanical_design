@@ -1,7 +1,6 @@
 // increase number of faces on rounded faces
-//$fn=50;
+$fn=100;
 
-% translate([0, 60, 0])
 difference() {
   union() {
     hull() {
@@ -72,11 +71,7 @@ difference() {
   translate([-hole1_x, hole1_y, -1]) cylinder(11, d=7);
   translate([-hole1_x, -hole1_y, -1]) cylinder(11, d=7);
 
-  // TODO : ajouter une rigole pour le maintien circulaire de la versaball
-
-  // TODO : ajouter un conduit d'air
-
-  // holes to attach this piece to the arm
+    // holes to attach this piece to the arm
   for (x_shift = [-36:12:36]) {
     translate([x_shift, 18, -1]) cylinder(h=50, d=3);
     translate([x_shift, -18, -1]) cylinder(h=50, d=3);
@@ -84,8 +79,14 @@ difference() {
     translate([x_shift, 18, 3]) cylinder(h=15, d=5.6);
     translate([x_shift, -18, 3]) cylinder(h=15, d=5.6);
   }
-}
 
-// Air duct through the piece
-/*air_duct_radius = junction_hole_radius;*/
-/*air_duct_radius = 3.5/2;*/
+  // Air ducts through the piece
+  small_air_duct_radius = 3.5/2;
+  translate([0, 0, 6])
+  rotate([0, 90, 0])
+  cylinder(h=100, r=small_air_duct_radius);
+
+  wide_air_duct_radius = 11.80/2;
+  translate([0, 0, 6-small_air_duct_radius])
+  cylinder(h=50, r=wide_air_duct_radius);
+}
