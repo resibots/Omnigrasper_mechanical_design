@@ -3,6 +3,7 @@ $fn=100;
 
 circle_diameter=172;
 plate_thickness = 5;
+motor_width = 54;
 
 projection()
 difference() {
@@ -23,8 +24,21 @@ difference() {
     }
   }
 
-  // Hole to let the robo's cables through
+  // Hole to let the robot's cables through
   translate([7, 0-34/2, -1])
     cube([17, 34, plate_thickness+2]);
 
+  // Screw holes to fix the arm's motor holders
+  for(x=[-18,18]) {
+    for(y=[15:12:45]) {
+      translate([x, y+motor_width/2, -1])
+        cylinder(h=7, d=3);
+    }
+  }
+  for(x=[-18,18]) {
+    for(y=[-15:-12:-45]) {
+      translate([x, y-motor_width/2, -1])
+        cylinder(h=7, d=3);
+    }
+  }
 }
