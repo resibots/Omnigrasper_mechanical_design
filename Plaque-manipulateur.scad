@@ -4,11 +4,18 @@ $fn=100;
 circle_diameter=172;
 plate_thickness = 5;
 motor_width = 54;
+rounding_radius = 5;
 
 projection()
 difference() {
-  linear_extrude(plate_thickness)
-    square(190, center=true);
+  hull() {
+    for(x=[-95+rounding_radius, 95-rounding_radius]) {
+      for(y=[-95+rounding_radius, 95-rounding_radius]) {
+        translate([x, y, 0])
+        cylinder(r=rounding_radius, h=plate_thickness);
+      }
+    }
+  }
 
   // Holes to attach to the Youbot
   for(angle=[0:45:315]) {
