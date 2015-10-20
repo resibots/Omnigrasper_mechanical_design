@@ -24,7 +24,7 @@ difference() {
   }
 
   // Hole to let the robo's cables through
-  translate([20-17/2, 0-34/2, -1])
+  translate([7, 0-34/2, -1])
     cube([17, 34, plate_thickness+2]);
 
 }
