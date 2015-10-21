@@ -17,8 +17,6 @@ difference() {
     }
   }
 
-  render()
-  union() {
     // Holes to attach to the Youbot
     for(angle=[0:45:315]) {
       translate([circle_diameter/2*cos(angle), circle_diameter/2*sin(angle), -1])
@@ -52,10 +50,12 @@ difference() {
     }
 
     // Extra holes for future use
+  render()
+  union() {
     for (x=[-75:15:80]) {
       for (y=[-75:15:80]) {
         if ((x<=-35 || y<=-35 || x>=35 || y >=34) &&
-            (x<-15 || x>15)) {
+            (x!=-15 && x!=15)) {
           translate([x, y, -1])
           cylinder(h=plate_thickness+2, d=3);
         }
