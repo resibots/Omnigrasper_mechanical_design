@@ -1,6 +1,8 @@
 // increase number of faces on rounded faces
 $fn=100;
 
+/*projection()
+rotate([90, 0, 0])*/
 difference() {
   translate([0, 21, 0])
     rotate([90, 0, 0])
