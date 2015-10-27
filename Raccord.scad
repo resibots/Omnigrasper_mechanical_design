@@ -18,7 +18,7 @@ difference() {
     // air duct to the Versaball
     pipe_height = 8;
     hole_radius = 11.80/2;
-    pipe_radius = 12;
+    pipe_radius = 11;
     chamfer = 0.5;
     seal_inner_radius = 17.46/2;
     seal_thickness = 2.38125; // 3/32 inch
