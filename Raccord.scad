@@ -15,7 +15,7 @@ difference() {
         translate([39, 0, 0])
           polygon([[0, 0], [width, 0], [width, height-chamfer], [width-chamfer, height], [chamfer, height], [0, height-chamfer]]);
 
-    // air duct to the Versaball
+    // junction pipe to the Versaball
     pipe_height = 8;
     hole_radius = 11.80/2;
     pipe_radius = 11;
