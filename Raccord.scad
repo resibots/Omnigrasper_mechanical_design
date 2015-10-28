@@ -12,7 +12,7 @@ difference() {
     chamfer = 0.5; // 0.5 mm of chamfer
     translate([0, 0, 13])
       rotate_extrude()
-        translate([39, 0, 0])
+        translate([39.55, 0, 0])
           polygon([[0, 0], [width, 0], [width, height-chamfer], [width-chamfer, height], [chamfer, height], [0, height-chamfer]]);
 
     // junction pipe to the Versaball
