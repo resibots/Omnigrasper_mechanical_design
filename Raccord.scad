@@ -21,16 +21,17 @@ difference() {
     pipe_radius = 11;
     chamfer = 0.5;
     seal_inner_radius = 17.46/2;
-    seal_thickness = 2.38125; // 3/32 inch
+    seal_thickness = 2.55; // the 3/32 inches theoretical value was
+                           // underestimating the real one
     translate([0, 0, 13])
       rotate_extrude()
         polygon([
           [hole_radius, 0],
           [pipe_radius, 0],
-          [pipe_radius, 4],
-          [pipe_radius-seal_thickness+0.01, 4],
-          [pipe_radius-seal_thickness+0.01, 4+seal_thickness-0.01],
-          [pipe_radius, 4+seal_thickness-0.01],
+          [pipe_radius, 4-0.5*seal_thickness],
+          [seal_inner_radius, 4-0.5*seal_thickness],
+          [seal_inner_radius, 4+seal_thickness],
+          [pipe_radius, 4+seal_thickness],
           [pipe_radius, pipe_height-chamfer],
           [pipe_radius-chamfer, pipe_height],
           [hole_radius, pipe_height]
