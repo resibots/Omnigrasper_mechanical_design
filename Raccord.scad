@@ -65,12 +65,14 @@ difference() {
   translate([hole1_x, -hole1_y, -1]) cylinder(50, d=4);
   translate([-hole1_x, hole1_y, -1]) cylinder(50, d=4);
   translate([-hole1_x, -hole1_y, -1]) cylinder(50, d=4);
-
   // Screw head's holes for the Versaball
-  translate([hole1_x, hole1_y, -1]) cylinder(11, d=7);
-  translate([hole1_x, -hole1_y, -1]) cylinder(11, d=7);
-  translate([-hole1_x, hole1_y, -1]) cylinder(11, d=7);
-  translate([-hole1_x, -hole1_y, -1]) cylinder(11, d=7);
+  // wall thickness : 3mm
+  // diameter of the screw head is 7mm but we take 9.2 mm as we add washers shich
+  // external diameter is 9mm.
+  translate([hole1_x, hole1_y, -1]) cylinder(11, d=9.2);
+  translate([hole1_x, -hole1_y, -1]) cylinder(11, d=9.2);
+  translate([-hole1_x, hole1_y, -1]) cylinder(11, d=9.2);
+  translate([-hole1_x, -hole1_y, -1]) cylinder(11, d=9.2);
 
     // holes to attach this piece to the arm
   for (x_shift = [-36:12:36]) {
