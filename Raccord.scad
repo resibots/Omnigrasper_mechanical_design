@@ -37,10 +37,10 @@ difference() {
           [hole_radius, pipe_height]
           ]);
 
-    // junction to plug the vacuum tube
+    // barbed fitting to plug the vacuum tube
     junction_radius = 6.25/2;
     junction_hole_radius = 3.50/2;
-    junction_enlargement = 0.5;
+    junction_radius_enlargement = 0.5;
     translate([40, 0, 6])
       rotate([0, 90, 0])
         rotate_extrude()
@@ -48,7 +48,7 @@ difference() {
             [junction_hole_radius, 0],
             [junction_radius, 0],
             [junction_radius, 8],
-            [junction_radius+junction_enlargement, 8],
+            [junction_radius+junction_radius_enlargement, 8],
             [junction_radius, 16],
             [junction_hole_radius, 16]
             ]);
